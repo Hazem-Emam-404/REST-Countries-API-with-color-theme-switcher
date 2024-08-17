@@ -1,0 +1,135 @@
+body {
+    background-color: #fafafa;
+}
+
+.container {
+    height: 100%;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+}
+
+.nav {
+    box-shadow: 3px 3px #f1f1f1;
+    background-color: white;
+}
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav .container .question {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.nav .container button {
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+}
+
+/*------------------------------------------------*/
+
+/* Search and Filter */
+
+
+    /* search */
+.search-filter {
+    margin-top: 20px;
+}
+.search-filter .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-filter .container .search {
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    height: 50px;
+    display: flex;
+    gap: 3%;
+    align-items: center;
+    padding-left: 25px;
+    box-shadow: 3px 3px  #f1f1f1;
+}
+
+.search-filter .container .search i {
+    color: #868585;
+} 
+.search-filter .container .search input {
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.search-filter .container .search input:focus {
+    outline: none;
+}
+ /*-------------------------------------------*/
+    
+    /* filter */
+
+.search-filter .container .filter-box {
+    background-color: rgb(255, 255, 255);
+    width: 150px;
+    height: 50px;
+    display: flex;
+    gap: 3%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px  #f1f1f1;
+}
+.search-filter .container .filter-box *:hover {
+    cursor: pointer;
+}
+.search-filter .container .filter-box:hover {
+    cursor: pointer;
+}
+
+.search-filter .container .search i {
+    color: #868585;
+} 
+.search-filter .container .search input {
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.search-filter .container .search input:focus {
+    outline: none;
+}    
+
+
+.search-filter .container .filter-list
+
+/*---------------------------------------------*/    
+
+
+/* Media Query */
+
+    /* Small */
+@media (min-width: 768px) {
+    .search-filter .container .filter-box {
+        width: 15%;
+    }
+}
+
+
+    /* Medium */ 
+@media (min-width: 992px) {
+    .search-filter .container .filter-box {
+        width: 20%;
+    }
+}
+
+
+    /* Large */
+@media (min-width: 1200px) {
+    .search-filter .container .filter-box {
+        width: 15%;
+    }
+} 
