@@ -77,6 +77,20 @@ function diplaySuggestions(suggestions) {
 
     suggest.forEach((sug) => sug.classList.remove("DarkModeElements"));
   }
+
+  darkMode.addEventListener('click',function(e){
+    e.preventDefault();
+    if (active) {
+      const suggest = document.querySelectorAll(".result");
+      console.log(suggestionsList);
+      suggest.forEach((sug) => sug.classList.add("DarkModeElements"));
+    } else {
+      const suggest = document.querySelectorAll(".result");
+  
+      suggest.forEach((sug) => sug.classList.remove("DarkModeElements"));
+    }
+
+  })
 }
 
 async function dipslayCountry(diplayedCountry) {
