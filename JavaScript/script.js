@@ -13,11 +13,15 @@ const filterLists = document.querySelector(".filter-lists  ul");
 const suggestionsList = document.querySelector(
   ".search-filter .container .search ul"
 );
+const countryBox = document.querySelector(
+  ".country-countainer .container .box"
+);
 let filterListItem;
 const nav = document.querySelector(".nav");
 let Box;
 let allCountries;
 let active = false;
+let currentRegion = "ALL"
 
 /*functions*/
 
@@ -34,7 +38,7 @@ async function filterRegions(region) {
   const countriesData = await countries.json();
   if (region == "ALL") allCountries = countriesData;
   countriesData.forEach((country) => {
-    const html = `<div class="box">
+    const html = `\n<div class="box">
                 <img src=${country.flags.png} alt=${country.flags.alt}>
                 <h3>${country.name.common}</h3>
                 <ul class="info">
@@ -164,7 +168,7 @@ filterLists.addEventListener("click", function (event) {
   text = text.toLowerCase();
   if (text === "li") {
     let region = event.target.textContent;
-
+    currentRegion = region;
     filterRegions(region);
   }
 });
@@ -194,6 +198,9 @@ darkMode.addEventListener("click", function (e) {
     filterListItem.forEach((item) => item.classList.add("DarkModeElements"));
   }
   Box.forEach((country) => country.classList.toggle("DarkModeElementsShadow"));
+  /* --- country page ----*/
+  document.querySelector(".country-page .back-button").classList.toggle("DarkModeElementsShadow");
+  $(".country-page .contry-border").toggleClass("DarkModeElementsShadow");
 });
 
 searchInput.addEventListener("input", function (e) {
@@ -242,3 +249,133 @@ searchElement.addEventListener("click", function (e) {
 });
 
 filterRegions("ALL");
+
+
+//----------------------------------- move to the selected country page ------------------------------
+
+
+
+
+async function dipslayCountryInCountryPage(diplayedCountry) {
+  try {
+    let response = await fetch(
+      `https://restcountries.com/v3.1/name/${diplayedCountry.toLowerCase()}`
+    );
+    let countries = await response.json();
+    console.log(countries);
+    let exactCountry = countries.filter(
+      (country) =>
+        country.name.common.toLowerCase() == diplayedCountry.toLowerCase()
+    );
+    // console.log(exactCountry);
+    // console.log(diplayedCountry);
+    if (exactCountry[0].name.common != diplayedCountry)
+      throw new Error("Invalid name");
+    container = document.querySelector(".country-page .container2");
+    container.innerHTML = "";
+
+
+
+  
+  // get sub region
+  let subregion;
+  if (exactCountry[0].subregion) {
+    subregion = exactCountry[0].subregion;
+  }
+  else {
+    subregion = exactCountry[0].continents[0];
+  }
+  //-------------------------------
+
+  // get languages
+  let languages = Object.values(exactCountry[0].languages);
+  languages = languages.join(', ')
+  // ----------------------
+
+    // get border countries
+    let borderCountries = "";
+    let borderCountriesArray = exactCountry[0].borders;
+    if (borderCountriesArray) {
+      for (let i = 0; i < borderCountriesArray.length; i++) {
+        borderCountries += ('<div class="contry-border">' + borderCountriesArray[i] + '</div>\n');
+      }
+    }
+    const html = `<div class="image-div"><img src=${
+      exactCountry[0].flags.png
+    } alt=${exactCountry[0].flags.alt}></div>
+          <h2 class="country-name">${exactCountry[0].name.common}</h2>
+          <div class="country-info" id="info-1">
+            <ul class="info">
+              <li><span>Native Name:</span> ${
+                exactCountry[0].name.nativeName[
+                  Object.keys(exactCountry[0].name.nativeName)[0]
+                ].common
+              }</li>
+              <li><span>Population:</span> ${exactCountry[0].population}</li>
+              <li><span>Region:</span> ${exactCountry[0].continents[0]}</li>
+              <li><span>Sub Region:</span> ${subregion}</li >
+              <li><span>Capital:</span> ${exactCountry[0].capital}</li>
+            </ul>
+          </div>
+          <div class="country-info" id="info-2">
+              <ul class="info">
+                <li><span>Top Level Domain:</span> ${exactCountry[0].tld[0]}</li>
+                <li><span>Currencies:</span> ${
+                  exactCountry[0].currencies[
+                    Object.keys(exactCountry[0].currencies)[0]
+                  ].name
+                } &nbsp;${
+      exactCountry[0].currencies[Object.keys(exactCountry[0].currencies)[0]]
+        .symbol
+    }</li>
+                <li><span>Languages:</span> ${languages}</li>
+              </ul>
+          </div>
+          <div class="border-contries">
+            <div id="border-word">Border Countries: </div>
+            <div class="border-countries2">
+              ${borderCountries}
+            </div>  
+            </div>
+        </div>  
+      </div>`;
+    container.insertAdjacentHTML("beforeend", html);
+
+        if (active) {
+            document
+              .querySelector(".country-page .back-button")
+              .classList.add("DarkModeElementsShadow");
+            $(".country-page .contry-border").addClass(
+              "DarkModeElementsShadow"
+            );
+        } else {
+            document
+              .querySelector(".country-page .back-button")
+              .classList.remove("DarkModeElementsShadow");
+            $(".country-page .contry-border").removeClass(
+              "DarkModeElementsShadow"
+            );
+        }
+  } catch (err) {
+    alert("invalid country name");
+  }
+}
+
+
+document.querySelector(".country-countainer").addEventListener("click", function (event) {
+    if (event.target.closest(".box") && !event.target.closest("ul.info")) {
+      let targetBox = event.target.closest(".box");
+      let countryName = targetBox.querySelector("h3").textContent;
+      dipslayCountryInCountryPage(countryName);
+      console.log(countryName);
+      document.querySelector(".home-page").classList.add("hidden");
+      document.querySelector(".country-page").classList.remove("hidden");
+    }
+  });
+
+$("button.back-button").on('click', function () {
+  document.querySelector(".home-page").classList.remove("hidden");
+  document.querySelector(".country-page").classList.add("hidden");
+  document.querySelector(".country-page .container2").innerHTML = "";
+});
+

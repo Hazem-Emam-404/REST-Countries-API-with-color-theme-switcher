@@ -33,48 +33,87 @@
         </button>
       </div>
     </div>
+<!-- -------------------------------------------------------------------------- -->
+    <div class="home-page">
+      <!-- search & filter -->
 
-    <!-- search & filter -->
+      <div class="search-filter">
+        <div class="container">
+          <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search for a country" />
+            <ul class="search-results hide"></ul>
+          </div>
+          <div class="filter-box">
+            <label for="filter-list">Filter by reigon</label>
+            <i class="fa-solid fa-angle-down" id="filter-list"></i>
+          </div>
+          <div class="filter-lists">
+            <ul class="lists">
+              <li class="list">Africa</li>
+              <li class="list">America</li>
+              <li class="list">Asia</li>
+              <li class="list">Europe</li>
+              <li class="list">Oceania</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- --------------------------------------------------------------  -->
 
-    <div class="search-filter">
-      <div class="container">
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="search" placeholder="Search for a country" />
-          <ul class="search-results hide"></ul>
-        </div>
-        <div class="filter-box">
-          <label for="filter-list">Filter by reigon</label>
-          <i class="fa-solid fa-angle-down" id="filter-list"></i>
-        </div>
-        <div class="filter-lists">
-          <ul class="lists">
-            <li class="list">Africa</li>
-            <li class="list">America</li>
-            <li class="list">Asia</li>
-            <li class="list">Europe</li>
-            <li class="list">Oceania</li>
-          </ul>
+      <!-- Countries -->
+      <div class="country-countainer">
+        <div class="container">
+          <div class="box">
+                  <img src="../images/Germany.png" alt="">
+                  <h3>Germany</h3>
+                  <ul class="info">
+                      <li><span>Population:</span> 81888888</li>
+                      <li><span>Region:</span> Europe</li>
+                      <li><span>Capital:</span> Berlin</li>
+                  </ul>
+              </div> 
         </div>
       </div>
     </div>
-    <!-- --------------------------------------------------------------  -->
 
-    <!-- Countries -->
-    <div class="country-countainer">
+
+<!-- ------------ country page -------------------------------  -->
+
+
+    <div class="country-page hidden">
       <div class="container">
-        <!-- <div class="box">
-                <img src="../images/Germany.png" alt="">
-                <h3>Germany</h3>
-                <ul class="info">
-                    <li><span>Population:</span> 81888888</li>
-                    <li><span>Region:</span> Europe</li>
-                    <li><span>Capital:</span> Berlin</li>
-                </ul>
-            </div>  -->
+        <button class="back-button"> <i class="fa-solid fa-arrow-left-long"></i> back</button>
+        <div class="container2">
+          <div class="image-div"><img src="../images/Germany.png" alt="country image"></div>
+          <h2 class="country-name">Germany</h2>
+          <div class="country-info" id="info-1">
+            <ul class="info">
+              <li><span>Native Name:</span> Germany</li>
+              <li><span>Population:</span> 123456789</li>
+              <li><span>Region:</span> Europe</li>
+              <li><span>Sub Region:</span> Western Europe</li>
+              <li><span>Capital:</span> Berline</li>
+            </ul>
+          </div>
+          <div class="country-info" id="info-2">
+              <ul class="info">
+                <li><span>Top Level Domain:</span> Germany</li>
+                <li><span>Currencies:</span> 123456789</li>
+                <li><span>Language:</span> Europe</li>
+              </ul>
+          </div>
+          <div class="border-contries">
+            <div id="border-word">Border Countries: </div>
+            <div class="border-countries2">
+              <div class="contry-border">France</div>
+              <div class="contry-border">Netherlands</div>
+              <div class="contry-border">Germany</div>
+            </div>  
+            </div>
+        </div>  
       </div>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../JavaScript/script.js"></script>
   </body>

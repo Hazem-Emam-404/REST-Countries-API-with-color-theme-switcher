@@ -11,6 +11,11 @@ body {
     "wdth" 100,
     "YTLC" 500;
 } */
+
+.hidden {
+  display: none;
+}
+
 ul {
   padding: 0px;
   margin: 0px;
@@ -215,10 +220,14 @@ ul {
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
 
 .country-countainer .container .box ul {
   width: calc(100% - 7%);
+  cursor:text;
 }
 
 .country-countainer .container .box img {
@@ -228,7 +237,7 @@ ul {
   width: 100%;
   height: 150px;
 }
-.country-countainer .container .box ul li {
+ul.info li {
   /* display: flex;
     flex-wrap: wrap; */
   text-wrap: wrap;
@@ -238,9 +247,10 @@ ul {
 
 .country-countainer .container .box h3 {
   font-weight: 800;
+  cursor:pointer;
 }
 
-.country-countainer .container .box ul li span {
+ul.info li span {
   font-weight: 600;
 }
 
@@ -275,6 +285,106 @@ ul {
 }
 
 /* ------------------------------------------ */
+
+
+/* --------------- country page -------------------------- */
+
+.country-page .container .back-button {
+  margin: 50px 0px;
+  border: none;
+  padding: 10px;
+  width: 100px;
+  border-radius: 10px;
+  transition: 0.3s;
+  box-shadow: 1px 1px 5px 0px #d9d9d9;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+}
+.country-page .container2 {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  gap: 20px;
+}
+.country-page .container .image-div {
+  grid-row: span 4;
+  grid-column: span 2;
+}
+.country-page .container h2 {
+  grid-column: span 2;
+  font-weight: 900;
+  margin: 0px;
+  padding-top: 20px;
+}
+.country-page .container .image-div img {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  max-height: 350px;
+}
+.country-page .container .country-info {
+  grid-row: span 2;
+}
+#border-word {
+  font-weight: 600;
+}
+.country-page .container .border-contries {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+#border-word {
+  grid-column: span 3;
+  min-width: 130px;
+}
+.country-page .container .border-contries .border-countries2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items:center;
+  gap: 1%;
+  flex-wrap: wrap;
+  width: 100%;
+  /* width: fit-content; */
+}
+.country-page .container .border-contries .contry-border {
+  padding: 5px;
+  box-shadow: 1px 1px 5px 0px #d9d9d9;
+  border-radius: 5px;
+  text-align: center;
+  transition: .3s;
+  cursor: pointer;
+}
+.country-page .container .border-contries .border-countries2 .contry-border:hover{
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 3px 3px 5px 0px #d9d9d9;
+  background-color: #bcbbbb;
+}
+.country-page .container .back-button:hover {
+  box-shadow: 3px 3px 5px 0px #d9d9d9;
+  background-color: #bcbbbb;
+}
+
+.country-page .container button.DarkModeElementsShadow:hover {
+  box-shadow: 3px 3px 5px 0px black !important;
+    background-color: hsl(200, 18%, 10%) !important;
+}
+
+.country-page .container div.DarkModeElementsShadow:hover {
+  box-shadow: 3px 3px 5px 0px black !important;
+    background-color: hsl(200, 18%, 10%) !important;
+}
+
+/* ----------------------------------------- */
+
+
 /* Media Query */
 
 /* Small */
@@ -282,6 +392,16 @@ ul {
   .search-filter .container .filter-box,
   .search-filter .container .filter-lists {
     width: 15%;
+  }
+    /* country page */
+  .country-page .container2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .country-page .container .border-contries {
+    flex-direction: row;
+    align-items: center;
   }
 }
 
@@ -291,6 +411,15 @@ ul {
   .search-filter .container .filter-lists {
     width: 20%;
   }
+    /* country page */
+  .country-page .container2 {
+    display: grid;
+    gap: 7%;
+  }
+  .country-page .container .border-contries {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 /* Large */
@@ -299,4 +428,15 @@ ul {
   .search-filter .container .filter-lists {
     width: 15%;
   }
+
+  /* country page */
+  .country-page .container2 {
+    display: grid;
+    gap: 7%;
+  }
+  .country-page .container .border-contries {
+    flex-direction: row;
+    align-items: center;
+  }
+
 }
