@@ -23,6 +23,8 @@ ul {
   width: 100%;
 }
 
+
+
 .container {
   height: 100%;
   padding: 10px;
@@ -50,6 +52,7 @@ ul {
   border: none;
   background-color: white;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 /*------------------------------------------------*/
@@ -75,6 +78,7 @@ ul {
   padding-left: 25px;
   box-shadow: 1px 1px 5px 0px #d9d9d9;
   position: relative;
+  
 }
 
 .search-filter .container .search i {
@@ -82,8 +86,8 @@ ul {
 }
 .search-filter .container .search input {
   border: none;
-  height: 100%;
-  width: 100%;
+  height: 90%;
+    width: 100%;
   padding-left: 10px;
 }
 
@@ -149,12 +153,7 @@ ul {
 .search-filter .container .search i {
   color: #868585;
 }
-.search-filter .container .search input {
-  border: none;
-  height: 100%;
-  width: 100%;
-  padding-left: 10px;
-}
+
 
 .search-filter .container .search input:focus {
   outline: none;
@@ -196,6 +195,7 @@ ul {
 }
 .search-filter .container .filter-lists ul li:hover {
   background-color: #bcbbbb;
+  cursor: pointer;
 }
 
 /*---------------------------------------------*/
@@ -263,6 +263,7 @@ ul.info li span {
 .DarkModeBody {
   background-color: hsl(207, 26%, 17%);
   color: hsl(0, 0%, 100%);
+  
 }
 
 .DarkModeElementsShadow {
@@ -300,6 +301,7 @@ ul.info li span {
   background-color: white;
   display: flex;
   justify-content: space-evenly;
+  cursor: pointer;
 }
 .country-page .container2 {
   display: flex;
@@ -405,6 +407,31 @@ ul.info li span {
   }
 }
 
+@media (max-width:480px ){
+  .search-filter .container .search{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .search-filter .container{
+    flex-wrap: wrap;
+  }
+
+  .search-filter .container .filter-box {
+    position: relative;
+    width: 50%;
+  }
+
+  .search-filter .container .filter-lists{
+    position: absolute;
+    left: 8px;
+    top: 100%;
+    width: 166px;
+
+
+  }
+
+}
+
 /* Medium */
 @media (min-width: 992px) {
   .search-filter .container .filter-box,
@@ -440,3 +467,6 @@ ul.info li span {
   }
 
 }
+
+
+

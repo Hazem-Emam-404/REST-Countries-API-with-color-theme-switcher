@@ -108,9 +108,10 @@ async function dipslayCountry(diplayedCountry) {
       (country) =>
         country.name.common.toLowerCase() == diplayedCountry.toLowerCase()
     );
-    console.log(exactCountry);
+    console.log(exactCountry[0]);
     console.log(diplayedCountry);
-    if (exactCountry[0].name.common != diplayedCountry)
+
+    if (exactCountry[0].name.common.toLowerCase() != diplayedCountry.toLowerCase())
       throw new Error("Invalid name");
     countriesCont.innerHTML = "";
     const html = `<div class="box">
@@ -201,6 +202,12 @@ darkMode.addEventListener("click", function (e) {
   /* --- country page ----*/
   document.querySelector(".country-page .back-button").classList.toggle("DarkModeElementsShadow");
   $(".country-page .contry-border").toggleClass("DarkModeElementsShadow");
+  if(active){
+    document.querySelector('.mode span').textContent='Light Mode';
+  }
+  else{
+    document.querySelector('.mode span').textContent='Dark Mode';
+  }
 });
 
 searchInput.addEventListener("input", function (e) {
