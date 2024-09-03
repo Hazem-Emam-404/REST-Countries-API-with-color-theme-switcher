@@ -2,6 +2,9 @@
 
 Country Explorer is a web application built with HTML, CSS, and JavaScript, utilizing the REST Countries API. This app allows users to explore countries from around the world with features like region-based filtering, country search, and detailed country information. The website also supports both dark mode and light mode with smooth transitions for an enhanced user experience.
 
+![Screenshot of the Country Explorer](images/light.png)
+
+
 ## 🚀 Features
 
 - **Display All Countries:** Browse all countries with their flags and basic information.
@@ -55,6 +58,9 @@ If you have any questions or suggestions, feel free to reach out:
 - **Email:** mohamedabdelaziem96@gmail.com
 - **GitHub:** [MohamedAbdelaiem](https://github.com/MohamedAbdelaiem).
 - **GitHub:** [HazemEmam](https://github.com/Hazem-Emam-404).
+
+![Screenshot of the Country Explorer](images/dark.png)
+
 
 Happy exploring! 🌍
 
